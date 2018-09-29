@@ -37,7 +37,6 @@ var correct = [7, "Goten", "Goku", "Capsule Corp", "Android 18", "Trunks", "Kami
 
 
 
-
 //****************************************************Question Selector//
 function quiz(){
 
@@ -73,20 +72,30 @@ function decrement() {
 
     };
 
+    // $("button").on("click", function(){
+    //     console.log(this);
+
+    //     if (this === ("<button>"+correct[i]+"</button>")) {
+    //         alert("right");
+    //     };
+    //   });
+
+    
+
 };
 //Timer//
 
 
-    
-//********************* Ask the Question/
-    // $("#rightanswer").html("<h1></h1>");
-    
-    // var i = (Math.floor(Math.random() * 10));
-    //     console.log(i);
-    //     $("#questions").html("<h1>" + quest[i] + "</h1>");
-    //     $("#answers").html("<button>" + (ans[i])[0] + "</button>"+"<br><br>"+ "<button>" + (ans[i])[1] + "</button>"+"<br><br>"+"<button>" + (ans[i])[2] + "</button>"+"<br><br>"+"<button>" + (ans[i])[3] + "</button>");
-    //     console.log(correct[i]);
-//********************* Ask the Question/
+
+$("button").on("click", function(){
+    console.log(this);
+
+    if (this === ("<button>"+correct[i]+"</button>")) {
+        alert("right");
+    };
+  });
+
+
 
 
 //Answer-Reveal//
