@@ -1,5 +1,5 @@
 
-//Bank//
+//*************************************************Bank//
 var quest = ["How many dragonballs must be collected in order to make a wish?",
     "What is the name of Goku's youngest son?",
     "Which character uses the attack 'Spirit Bomb'?",
@@ -28,13 +28,32 @@ var ans = [
 ];
 
 var correct = [7, "Goten", "Goku", "Capsule Corp", "Android 18", "Trunks", "Kami", "Vegeta", "Android Saga", "Dr Gero"];
-//Bank//
+//*************************************************Bank//
 
 
+
+
+
+
+
+
+
+//****************************************************Question Selector//
+function quiz(){
+
+//********************* Ask the Question/
+$("#rightanswer").html("<h1></h1>");
+    
+var i = (Math.floor(Math.random() * 10));
+    console.log(i);
+    $("#questions").html("<h1>" + quest[i] + "</h1>");
+    $("#answers").html("<button>" + (ans[i])[0] + "</button>"+"<br><br>"+ "<button>" + (ans[i])[1] + "</button>"+"<br><br>"+"<button>" + (ans[i])[2] + "</button>"+"<br><br>"+"<button>" + (ans[i])[3] + "</button>");
+    console.log(correct[i]);
+//********************* Ask the Question/
 
 
 //Timer//
-var timed = 20;
+var timed = 6;
 var intervalId;
 function run() {
     intervalId = setInterval(decrement, 1000);
@@ -49,7 +68,7 @@ function decrement() {
         setTimeout(threesec, 1000 * 3);
 
         function threesec() {
-            start();
+            quiz();
         };
 
     };
@@ -58,54 +77,42 @@ function decrement() {
 //Timer//
 
 
+    
+//********************* Ask the Question/
+    // $("#rightanswer").html("<h1></h1>");
+    
+    // var i = (Math.floor(Math.random() * 10));
+    //     console.log(i);
+    //     $("#questions").html("<h1>" + quest[i] + "</h1>");
+    //     $("#answers").html("<button>" + (ans[i])[0] + "</button>"+"<br><br>"+ "<button>" + (ans[i])[1] + "</button>"+"<br><br>"+"<button>" + (ans[i])[2] + "</button>"+"<br><br>"+"<button>" + (ans[i])[3] + "</button>");
+    //     console.log(correct[i]);
+//********************* Ask the Question/
 
 
-//Question Selector//
-
-function quiz(){
-
-    run();
-
-    var i = (Math.floor(Math.random() * 10));
-        console.log(i);
-        $("#questions").html("<h1>" + quest[i] + "</h1>");
-        $("#answers").html("<button>" + (ans[i])[0] + "</button>"+"<br><br>"+ "<button>" + (ans[i])[1] + "</button>"+"<br><br>"+"<button>" + (ans[i])[2] + "</button>"+"<br><br>"+"<button>" + (ans[i])[3] + "</button>");
-      
-
+//Answer-Reveal//
+function answer() {
+    $("#rightanswer").html("<h1>Time is up! Correct Answer: " + correct[i] + "</h1>");
 };
+//Answer-Reveal// 
+run();
+};
+//****************************************************Question Selector//
 
 
-//Question Selector//
-
-
-$(document).ready(function () {
-
-    $("button").on("click", function start() {
+    $(".startMe").on("click", function start() {
     
 
         quiz();
 
 
-        $("button").on("click", function(){
-            console.log(this);
+        // $("button").on("click", function(){
+        //     console.log(this);
 
-            if (this === ("<button>"+correct[i]+"</button>")) {
-                alert("right");
-            };
-          });
+        //     if (this === ("<button>"+correct[i]+"</button>")) {
+        //         alert("right");
+        //     };
+        //   });
   
-
-        $("#rightanswer").html("<h1></h1>");
-
-        function answer() {
-            $("#rightanswer").html("<h1>Time is up! Correct Answer: " + correct[i] + "</h1>");
-        };
-
-        console.log(correct[i]);
-
-       
-
-        
 
 
 
@@ -117,7 +124,7 @@ $(document).ready(function () {
 
 
 
-});
+
 
 
 // *******************************
