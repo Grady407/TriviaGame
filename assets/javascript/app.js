@@ -46,13 +46,13 @@ $("#rightanswer").html("<h1></h1>");
 var i = (Math.floor(Math.random() * 10));
     console.log(i);
     $("#questions").html("<h1>" + quest[i] + "</h1>");
-    $("#answers").html("<button>" + (ans[i])[0] + "</button>"+"<br><br>"+ "<button>" + (ans[i])[1] + "</button>"+"<br><br>"+"<button>" + (ans[i])[2] + "</button>"+"<br><br>"+"<button>" + (ans[i])[3] + "</button>");
+    $("#answers").html("<button value="+(ans[i])[0]+">" + (ans[i])[0] + "</button>"+"<br><br>"+ "<button value="+(ans[i])[1]+">" + (ans[i])[1] + "</button>"+"<br><br>"+"<button value="+(ans[i])[2]+">" + (ans[i])[2] + "</button>"+"<br><br>"+"<button value="+(ans[i])[3]+">" + (ans[i])[3] + "</button>");
     console.log(correct[i]);
 //********************* Ask the Question/
 
 
 //Timer//
-var timed = 6;
+var timed = 10;
 var intervalId;
 function run() {
     intervalId = setInterval(decrement, 1000);
@@ -72,16 +72,6 @@ function decrement() {
 
     };
 
-    // $("button").on("click", function(){
-    //     console.log(this);
-
-    //     if (this === ("<button>"+correct[i]+"</button>")) {
-    //         alert("right");
-    //     };
-    //   });
-
-    
-
 };
 //Timer//
 
@@ -89,9 +79,12 @@ function decrement() {
 
 $("button").on("click", function(){
     console.log(this);
+    var userChoice =this.value;
+    console.log(userChoice);
 
-    if (this === ("<button>"+correct[i]+"</button>")) {
+    if (userChoice === (correct[i])) {
         alert("right");
+        rightPick();
     };
   });
 
@@ -102,6 +95,11 @@ $("button").on("click", function(){
 function answer() {
     $("#rightanswer").html("<h1>Time is up! Correct Answer: " + correct[i] + "</h1>");
 };
+
+function rightPick() {
+    $("#rightanswer").html("<h1>That's Right!!!! " + correct[i] + "</h1>");
+};
+
 //Answer-Reveal// 
 run();
 };
@@ -112,18 +110,7 @@ run();
     
 
         quiz();
-
-
-        // $("button").on("click", function(){
-        //     console.log(this);
-
-        //     if (this === ("<button>"+correct[i]+"</button>")) {
-        //         alert("right");
-        //     };
-        //   });
   
-
-
 
     });
 
