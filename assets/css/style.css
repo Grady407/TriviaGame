@@ -1,7 +1,23 @@
 * {
-    color:darkgreen;
+    color:red;
+    font-family: 'Do Hyeon', sans-serif;
+    text-align: center;
 }
 
 body {
-background-image:url("../images/dbz11.jpg");
-};
+background-image:url("../images/super_saiyan_blue-goku-and-vegeta-dbs-anime-m23.jpg");
+/* image borrowed from https://otakukart.com/dragonballsuper/whis-goku-achieved-ultra-instinct-vegeta/ */
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+#top {
+    font-weight: bold;
+}
+#answers {
+    font-size: 30px;
+}

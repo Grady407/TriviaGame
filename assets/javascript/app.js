@@ -1,3 +1,5 @@
+
+//Bank//
 var quest = ["How many dragonballs must be collected in order to make a wish?",
     "What is the name of Goku's youngest son?",
     "Which character uses the attack 'Spirit Bomb'?",
@@ -26,25 +28,70 @@ var ans = [
 ];
 
 var correct = [7, "Goten", "Goku", "Capsule Corp", "Android 18", "Trunks", "Kami", "Vegeta", "Android Saga", "Dr Gero"];
+//Bank//
 
+
+
+
+//Timer//
 var timed = 20;
+var intervalId;
+function run() {
+    intervalId = setInterval(decrement, 1000);
+};
+function decrement() {
+    timed--;
+
+    $("#timedown").html("<h2>Time Left: " + timed + "</h2>");
+    if (timed === 0) {
+        answer()
+
+        setTimeout(threesec, 1000 * 3);
+
+        function threesec() {
+            start();
+        };
+
+    };
+
+};
+//Timer//
+
+
+
+
+//Question Selector//
+
+function quiz(){
+
+    run();
+
+    var i = (Math.floor(Math.random() * 10));
+        console.log(i);
+        $("#questions").html("<h1>" + quest[i] + "</h1>");
+        $("#answers").html("<button>" + (ans[i])[0] + "</button>"+"<br><br>"+ "<button>" + (ans[i])[1] + "</button>"+"<br><br>"+"<button>" + (ans[i])[2] + "</button>"+"<br><br>"+"<button>" + (ans[i])[3] + "</button>");
+      
+
+};
+
+
+//Question Selector//
+
 
 $(document).ready(function () {
 
     $("button").on("click", function start() {
-        run()
+    
 
-        var i = (Math.floor(Math.random() * 10));
-        console.log(i);
-        $("#questions").html("<h1>" + quest[i] + "</h1>");
-        $("#answers").html("<button>" + (ans[i])[0] + "</button>"+"<br>"+ "<button>" + (ans[i])[1] + "</button>"+"<br>"+"<button>" + (ans[i])[2] + "</button>"+"<br>"+"<button>" + (ans[i])[3] + "</button>");
-      
+        quiz();
+
+
         $("button").on("click", function(){
             console.log(this);
 
-        //     if (this == ("<button>"+correct+"</button>")) {
-        //         alert("right");
-        //     };
+            if (this === ("<button>"+correct[i]+"</button>")) {
+                alert("right");
+            };
           });
   
 
@@ -56,31 +103,7 @@ $(document).ready(function () {
 
         console.log(correct[i]);
 
-        var timed = 20;
-        var intervalId;
-
-        function run() {
-            intervalId = setInterval(decrement, 1000);
-        };
-
-        function decrement() {
-            timed--;
-
-            $("#timedown").html("<h2>Time Left: " + timed + "</h2>");
-
-
-            if (timed === 0) {
-                answer()
-
-                setTimeout(threesec, 1000 * 3);
-
-                function threesec() {
-                    start();
-                };
-
-            };
-
-        };
+       
 
         
 
